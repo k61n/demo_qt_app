@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+    <Name>gr-demo</Name>
+    <Version>0.1</Version>
+    <Title>gr-demo Installer</Title>
+    <Publisher>Forschungszentrum Jülich</Publisher>
+    <StartMenuDir>gr-demo</StartMenuDir>
+    <TargetDir>@ApplicationsDir@/gr-demo</TargetDir>
+</Installer>
