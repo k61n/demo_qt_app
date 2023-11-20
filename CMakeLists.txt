@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.25)
 
 project(gr-demo VERSION 0.1 LANGUAGES CXX)
 
@@ -24,11 +24,11 @@ set(PROJECT_SOURCES
 add_executable(gr-demo ${PROJECT_SOURCES})
 target_link_libraries(gr-demo PRIVATE Qt5::Widgets GR::qt5gr)
 
-#set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.gr-demo)
-#set_target_properties(gr-demo PROPERTIES
-#    ${BUNDLE_ID_OPTION}
-#    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-#    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-#    MACOSX_BUNDLE TRUE
-#    WIN32_EXECUTABLE TRUE
-#)
+if(APPLE)
+    set_target_properties(gr-demo PROPERTIES
+        MACOSX_BUNDLE_GUI_IDENTIFIER com.example.gr-demo
+        MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+        MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+        MACOSX_BUNDLE TRUE
+        WIN32_EXECUTABLE TRUE)
+endif()
