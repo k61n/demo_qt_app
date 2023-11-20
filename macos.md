@@ -26,15 +26,12 @@ If the build is successfull the resulting executable should be able to run.
 ./gr-demo
 ```
 
-CMakeLists.txt piece of code that enables cmake to build .app bundles.
+CMakeLists.txt piece of code that enables cmake to build .app bundles, just pass
+`-DBUNDLE=ON` option to cmake:
 ```CMakeLists.txt
-set_target_properties(gr-demo PROPERTIES
-    MACOSX_BUNDLE_GUI_IDENTIFIER com.example.gr-demo
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-    MACOSX_BUNDLE TRUE
-    WIN32_EXECUTABLE TRUE
-)
+cmake .. -DCMAKE_BUILD_TYPE=Release -DBUNDLE=ON
+    -DGR_ROOT=/opt/homebrew/opt/gr
+    -DCMAKE_PREFIX_PATH=/opt/homebrew/opt/qt@5
 ```
 
 This bundle however is not ready to be distributed, because if you run `otool -L`
