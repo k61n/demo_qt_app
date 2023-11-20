@@ -13,13 +13,12 @@ find_package(Qt5 REQUIRED COMPONENTS Widgets)
 find_package(GR REQUIRED)
 
 set(PROJECT_SOURCES
-    main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
-    grplot.h
-    grplot.cpp
-)
+    src/main.cpp
+    src/mainwindow.cpp
+    src/mainwindow.h
+    src/mainwindow.ui
+    src/grplot.h
+    src/grplot.cpp)
 
 add_executable(gr-demo ${PROJECT_SOURCES})
 target_link_libraries(gr-demo PRIVATE Qt5::Widgets GR::qt5gr)
