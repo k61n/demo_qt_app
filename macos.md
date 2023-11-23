@@ -26,7 +26,7 @@ If the build is successfull the resulting executable should be able to run.
 ./gr-demo
 ```
 
-CMakeLists.txt piece of code that enables cmake to build .app bundles, just pass
+CMakeLists.txt has piece of code that enables cmake to build .app bundles, just pass
 `-DBUNDLE=ON` option to cmake:
 ```CMakeLists.txt
 cmake .. -DCMAKE_BUILD_TYPE=Release -DBUNDLE=ON
@@ -57,6 +57,7 @@ Create a `.dmg`
 ```bash
 hdiutil create -size 100m -fs HFS+ -volname "gr-demo" -attach ./gr-demo.dmg
 mv gr-demo.app /Volumes/gr-demo
+ln -s /Applications /Volumes/gr-demo/Applications
 rm -rf /Volumes/gr-demo/.fseventsd
 hdiutil detach /Volumes/gr-demo
 hdiutil convert ./gr-demo.dmg -format UDZO -o gr-demo-v0.1-arm.dmg
